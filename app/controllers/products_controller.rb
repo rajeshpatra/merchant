@@ -5,6 +5,7 @@ class ProductsController < ApplicationController
 	end
 
 	def show
+		@product = Product.find(params[:id])
 	end
 
 	def new
@@ -21,6 +22,14 @@ class ProductsController < ApplicationController
 				format.html { render :new }
 			end
 		end
+	end
+
+	def destroy
+		@product = Product.find(params[:id])
+		@product.destroy
+		respond_to do |format|
+      format.html { redirect_to products_path, notice: 'Product was successfully destroyed.' }
+    end
 	end
 
 	private
