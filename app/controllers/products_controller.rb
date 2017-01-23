@@ -28,6 +28,13 @@ class ProductsController < ApplicationController
 		end
 	end
 
+	def update
+		@product = Product.find(params[:id])
+		@product.update(product_params)
+		redirect_to product_path(@product)
+		flash.notice = "Product '#{@product.title}' Updated!"
+	end
+
 	def destroy
 		@product = Product.find(params[:id])
 		@product.destroy
@@ -38,6 +45,6 @@ class ProductsController < ApplicationController
 
 	private
 	def product_params
-		params.require(:product).permit(:title, :price, :description, :image_url)
+		params.require(:product).permit(:title, :price, :description, :image_url, :stock)
 	end
 end
