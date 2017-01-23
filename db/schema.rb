@@ -18,8 +18,9 @@ ActiveRecord::Schema.define(version: 20170123090942) do
     t.decimal  "price",       precision: 8, scale: 2
     t.text     "description"
     t.string   "image_url"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at",                                      null: false
+    t.datetime "updated_at",                                      null: false
+    t.integer  "stock",                               default: 0
   end
 
 end
