@@ -27,7 +27,9 @@ class OrderItemsController < ApplicationController
   # POST /order_items
   # POST /order_items.json
   def create
-    @order_item = @order.order_items.new(quantity: 1, product_id: params[:product_id])
+    # @order_item = @order.order_items.new(quantity: 1, product_id: params[:product_id])
+
+    @order_item = @order.order_items.find_or_initialize_by_product_id(params[:product_id])
 
     respond_to do |format|
       if @order_item.save
@@ -59,7 +61,7 @@ class OrderItemsController < ApplicationController
   def destroy
     @order_item.destroy
     respond_to do |format|
-      format.html { redirect_to order_items_url, notice: 'Order item was successfully destroyed.' }
+      format.html { redirect_to orders_path, notice: 'Order item was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
