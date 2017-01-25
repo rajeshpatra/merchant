@@ -9,6 +9,8 @@ module ProductsHelper
 		if stock > 0
 			# <span class="in_stock">In Stock(12)</span>
 			"In stock"
+		elsif
+
 		else
 			# <span class="out_stock">Out of Stock</span>"
 			"Out of stock"
