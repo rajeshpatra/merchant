@@ -6,4 +6,6 @@ class OrderItem < ActiveRecord::Base
 		# @order.order_items.each do |item|
 		# subtotal code for every item goes here
 	end
+
+	
 end
